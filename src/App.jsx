@@ -154,8 +154,8 @@ const Nav = ({ currentSection, onNavigate }) => {
     { id: "hero", label: "Home" },
     { id: "bio", label: "About" },
     { id: "case-study", label: "Case Study" },
-    { id: "built-with-claude", label: "Claude" },
     { id: "startup", label: "AI Startup" },
+    { id: "ripple", label: "Community" },
     { id: "resume", label: "Resume" },
     { id: "contact", label: "Contact" },
   ];
@@ -850,6 +850,7 @@ const SupplierQualification = () => {
 const CaseStudy = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [ref, inView] = useInView(0.1);
+  const isMobile = useIsMobile();
 
   const tabs = [
     "What-If Demand Planner",
@@ -875,15 +876,27 @@ const CaseStudy = () => {
       }}>
         {inView ? <TypewriterBlock text="How I Think About Factory Scale-Up" speed={25} /> : ""}
       </h2>
-      <p style={{
-        fontFamily: FONT, fontSize: "1rem", color: COLORS.text, maxWidth: "700px",
-        lineHeight: 1.7, marginBottom: "3rem",
-      }}>
-        Advanced Technology & Defense manufacturers face a defining challenge: scaling from prototype to full-rate production
-        under tight timelines and capital constraints. These interactive tools demonstrate how I approach
-        capacity planning, factory optimization, equipment risk, and supplier qualification — the same methods I use at Intel
-        across 7 global fabs.
-      </p>
+      <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "1.5rem", marginBottom: "3rem", maxWidth: "900px" }}>
+        {[
+          { title: "Problem", desc: "Advanced tech and defense companies can build incredible prototypes — but scaling to full-rate production is where most stumble. Wrong equipment mix, bad facility layout, single-source suppliers, and capital misallocation turn a 12-month ramp into a 3-year money pit." },
+          { title: "Solution", desc: "Systematic capacity planning that treats factory scale-up like an engineering problem, not a guessing game. Model demand scenarios, optimize floor layouts, assess equipment risk, and qualify suppliers before a single dollar is committed." },
+          { title: "What I Built", desc: "The interactive tools below — a demand planner for what-if modeling, a factory floor optimizer with 60+ equipment items and material flow paths, an equipment risk tracker, and a weighted supplier qualification system. These mirror the actual methods I use at Intel across 7 global fabs." },
+          { title: "How I Built It", desc: "Designed and built entirely with Claude Code in a single collaborative session. Every component, animation, SVG layout, and algorithm — from conversation to production code." },
+        ].map((card, i) => (
+          <div key={card.title} style={{
+            background: COLORS.cardBg, border: `1px solid ${COLORS.cardBorder}`, padding: "2rem",
+            opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(20px)",
+            transition: `all 0.5s ease ${i * 0.1}s`,
+          }}>
+            <h4 style={{ fontFamily: FONT, fontSize: "0.75rem", color: COLORS.accent, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "1rem" }}>
+              {card.title}
+            </h4>
+            <p style={{ fontFamily: FONT, fontSize: "0.9rem", color: COLORS.text, lineHeight: 1.7 }}>
+              {card.desc}
+            </p>
+          </div>
+        ))}
+      </div>
 
       {/* Tabs */}
       <div style={{
@@ -2110,9 +2123,7 @@ const EquipmentRiskTracker = () => {
 };
 
 // ============================================================
-// BUILT WITH CLAUDE SECTION
-// ============================================================
-const BuiltWithClaude = () => {
+const _REMOVED_BuiltWithClaude = () => {
   const [ref, inView] = useInView(0.1);
   const isMobile = useIsMobile();
 
@@ -2376,6 +2387,80 @@ const StartupSection = () => {
       >
         Visit Convos.GoDeepr.ai &rarr;
       </a>
+    </section>
+  );
+};
+
+// ============================================================
+// RIPPLE / COMMUNITY SECTION
+// ============================================================
+const RippleSection = () => {
+  const [ref, inView] = useInView(0.1);
+  const isMobile = useIsMobile();
+
+  return (
+    <section id="ripple" ref={ref} style={{ padding: "8rem 2rem", maxWidth: "1200px", margin: "0 auto" }}>
+      <div style={{ marginBottom: "1rem" }}>
+        <span style={{ fontFamily: FONT, fontSize: "0.75rem", color: COLORS.accent, letterSpacing: "0.2em", textTransform: "uppercase" }}>
+          Community
+        </span>
+      </div>
+      <h2 style={{
+        fontFamily: FONT, fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 600,
+        color: COLORS.heading, marginBottom: "1rem", lineHeight: 1.1,
+      }}>
+        {inView ? <TypewriterBlock text="Ripple / GoDeepr.ai" speed={30} /> : ""}
+      </h2>
+      <p style={{ fontFamily: FONT, fontSize: "1rem", color: COLORS.text, maxWidth: "700px", lineHeight: 1.7, marginBottom: "3rem" }}>
+        A platform for sharing ripples of gratitude through your community.
+      </p>
+
+      <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "1.5rem", marginBottom: "3rem" }}>
+        {[
+          { title: "Problem", desc: "Gratitude is one of the most powerful forces for building community — but we don't have a good way to share it beyond a passing comment or a text that gets buried. Workplaces, neighborhoods, and friend groups lack a simple way to publicly recognize the people who make a difference." },
+          { title: "Solution", desc: "Ripple — a platform for sharing ripples of gratitude through your community. Send a ripple to someone who helped you, and it becomes visible to the people around them. Small recognitions compound into culture." },
+          { title: "What I Built", desc: "Full-stack web app with social mechanics for sending, receiving, and discovering ripples. Community feeds, notification system, and shareable ripple cards. Built for both organic communities and workplace teams." },
+          { title: "How I Built It", desc: "Solo builder using Claude Code and Claude API. Designed the UX, built the architecture, and shipped iteratively — testing with real communities to refine what resonates." },
+        ].map((card, i) => (
+          <div key={card.title} style={{
+            background: COLORS.cardBg, border: `1px solid ${COLORS.cardBorder}`, padding: "2rem",
+            opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(20px)",
+            transition: `all 0.5s ease ${i * 0.1}s`,
+          }}>
+            <h4 style={{ fontFamily: FONT, fontSize: "0.75rem", color: COLORS.accent, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "1rem" }}>
+              {card.title}
+            </h4>
+            <p style={{ fontFamily: FONT, fontSize: "0.9rem", color: COLORS.text, lineHeight: 1.7 }}>
+              {card.desc}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <a
+        href="https://ripple.godeepr.ai"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          display: "inline-flex", alignItems: "center", gap: "0.75rem",
+          fontFamily: FONT, fontSize: "1rem", fontWeight: 600,
+          color: COLORS.heading, textDecoration: "none",
+          padding: "1rem 2rem", border: `1px solid ${COLORS.cardBorder}`,
+          transition: "all 0.3s", marginBottom: "3rem",
+        }}
+        onMouseEnter={e => { e.currentTarget.style.borderColor = COLORS.heading; e.currentTarget.style.transform = "translateX(4px)"; }}
+        onMouseLeave={e => { e.currentTarget.style.borderColor = COLORS.cardBorder; e.currentTarget.style.transform = "translateX(0)"; }}
+      >
+        Try it &rarr; ripple.godeepr.ai
+      </a>
+
+      <p style={{
+        fontFamily: FONT, fontSize: "0.95rem", color: COLORS.text, lineHeight: 1.8,
+        maxWidth: "700px", fontStyle: "italic", marginTop: "1rem",
+      }}>
+        I'm also actively engaged in AI builder communities across multiple cities — attending meetups,
+        workshops, and connecting people in manufacturing and defense tech with frontier AI tools.
+      </p>
     </section>
   );
 };
@@ -2668,7 +2753,7 @@ export default function App() {
 
   // Track current section on scroll
   useEffect(() => {
-    const sections = ["hero", "bio", "case-study", "built-with-claude", "startup", "resume", "contact"];
+    const sections = ["hero", "bio", "case-study", "startup", "ripple", "resume", "contact"];
     const onScroll = () => {
       for (const id of [...sections].reverse()) {
         const el = document.getElementById(id);
@@ -2705,8 +2790,8 @@ export default function App() {
       <Bio />
       <ProjectCards onNavigate={onNavigate} />
       <CaseStudy />
-      <BuiltWithClaude />
       <StartupSection />
+      <RippleSection />
       <ResumeSection />
       <Contact />
     </div>
