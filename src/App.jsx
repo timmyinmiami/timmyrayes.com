@@ -784,7 +784,7 @@ const CaseStudy = () => {
         fontFamily: FONT, fontSize: "1rem", color: COLORS.text, maxWidth: "700px",
         lineHeight: 1.7, marginBottom: "3rem",
       }}>
-        Defense manufacturers face a defining challenge: scaling from prototype to full-rate production
+        Advanced Technology & Defense manufacturers face a defining challenge: scaling from prototype to full-rate production
         under tight timelines and capital constraints. These interactive tools demonstrate how I approach
         capacity planning, factory optimization, equipment risk, and supplier qualification — the same methods I use at Intel
         across 7 global fabs.
@@ -2036,12 +2036,12 @@ const BuiltWithClaude = () => {
     {
       name: "Claude Code",
       icon: "⌨️",
-      usage: "Engineering co-pilot",
+      usage: "Personal engineering co-pilot",
       examples: [
         "Built this entire portfolio site — every component, animation, and interactive tool",
-        "Developed Python automation scripts for capacity model pipelines",
-        "Created data visualization tools and dashboards",
         "Rapid prototyping of full-stack features for GoDeepr.ai",
+        "Personal automation scripts and data visualization tools",
+        "Intel now testing Claude Code for department-wide adoption",
       ],
     },
     {
@@ -2060,8 +2060,8 @@ const BuiltWithClaude = () => {
       icon: "🔌",
       usage: "Production AI integration",
       examples: [
+        "Used at Intel for capacity planning analysis and strategic decision support",
         "Powers the conversational AI engine behind Convos / GoDeepr.ai",
-        "Automated lead qualification and routing workflows",
         "Real-time voice agent integration for customer interactions",
         "API orchestration across scheduling, CRM, and messaging systems",
       ],
@@ -2103,9 +2103,10 @@ const BuiltWithClaude = () => {
         fontFamily: FONT, fontSize: "1rem", color: COLORS.text, maxWidth: "700px",
         lineHeight: 1.7, marginBottom: "3rem",
       }}>
-        Claude isn't just a tool I use — it's how I build. From strategic capacity planning at Intel
-        to launching an AI startup to creating this site, Claude is embedded in my daily workflow
-        across every product Anthropic ships.
+        Claude isn't just a tool I use — it's how I build. At Intel I use the Claude API for strategic
+        capacity planning and analysis. On the side, I build with Claude Code — from launching an AI
+        startup to creating this site. Intel is now testing Claude Code for department-wide adoption,
+        and Claude is embedded in my daily workflow across every product Anthropic ships.
       </p>
 
       {/* Product usage cards */}
