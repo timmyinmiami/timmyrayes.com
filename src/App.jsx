@@ -2474,9 +2474,46 @@ const Contact = () => {
           </a>
         ))}
       </div>
+      <div style={{ marginTop: "2.5rem" }}>
+        <button
+          onClick={() => {
+            const vcf = [
+              "BEGIN:VCARD",
+              "VERSION:3.0",
+              "N:Rayes;Timmy;;;",
+              "FN:Timmy Rayes",
+              "ORG:Intel Corporation",
+              "TITLE:Strategic Capacity Planning Industrial Engineer",
+              "EMAIL:tnrayes@gmail.com",
+              "TEL:480-234-9809",
+              "ADR;TYPE=WORK:;;Phoenix;AZ;;;US",
+              "URL:https://timmyrayes.com",
+              "URL:https://www.linkedin.com/in/trayes/",
+              "END:VCARD",
+            ].join("\r\n");
+            const blob = new Blob([vcf], { type: "text/vcard" });
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            a.download = "Timmy_Rayes.vcf";
+            a.click();
+            URL.revokeObjectURL(a.href);
+          }}
+          style={{
+            fontFamily: FONT, fontSize: "0.85rem", fontWeight: 600,
+            background: "transparent", color: COLORS.heading,
+            border: `1px solid ${COLORS.heading}`, padding: "0.8rem 2rem",
+            cursor: "pointer", letterSpacing: "0.08em", transition: "all 0.3s",
+            display: "inline-flex", alignItems: "center", gap: "0.5rem",
+          }}
+          onMouseEnter={e => { e.currentTarget.style.background = COLORS.heading; e.currentTarget.style.color = "#000"; }}
+          onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = COLORS.heading; }}
+        >
+          <span style={{ fontSize: "1.1rem" }}>&#128197;</span> Save My Contact
+        </button>
+      </div>
       <div style={{ marginTop: "4rem", paddingTop: "2rem", borderTop: `1px solid ${COLORS.cardBorder}` }}>
         <span style={{ fontFamily: FONT, fontSize: "0.7rem", color: COLORS.tabInactive, letterSpacing: "0.1em" }}>
-          &copy; 2026 TIMMY RAYES
+          &copy; 2026 Timmy Rayes. Built with Claude Code.
         </span>
       </div>
     </section>
