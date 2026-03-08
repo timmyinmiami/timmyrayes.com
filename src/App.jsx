@@ -152,6 +152,7 @@ const Nav = ({ currentSection, onNavigate }) => {
 
   const links = [
     { id: "hero", label: "Home" },
+    { id: "bio", label: "About" },
     { id: "case-study", label: "Case Study" },
     { id: "built-with-claude", label: "Claude" },
     { id: "startup", label: "AI Startup" },
@@ -322,6 +323,99 @@ const Hero = () => {
         }}>
           Scroll
         </div>
+      </div>
+    </section>
+  );
+};
+
+// ============================================================
+// BIO SECTION (Who / What / Why)
+// ============================================================
+const Bio = () => {
+  const [ref, inView] = useInView(0.1);
+  const isMobile = useIsMobile();
+
+  const sectionLabel = (text) => (
+    <div style={{
+      fontFamily: FONT, fontSize: "0.65rem", fontWeight: 600,
+      color: COLORS.accent, letterSpacing: "0.2em", textTransform: "uppercase",
+      marginBottom: "1rem",
+    }}>
+      {text}
+    </div>
+  );
+
+  const bodyStyle = {
+    fontFamily: FONT, fontSize: "0.95rem", color: COLORS.text, lineHeight: 1.8,
+  };
+
+  return (
+    <section id="bio" ref={ref} style={{
+      padding: "6rem 2rem", maxWidth: "900px", margin: "0 auto",
+      opacity: inView ? 1 : 0, transform: inView ? "none" : "translateY(30px)",
+      transition: "opacity 0.8s ease, transform 0.8s ease",
+    }}>
+      {/* WHO */}
+      <div style={{
+        display: "flex", flexDirection: isMobile ? "column" : "row",
+        gap: "2.5rem", alignItems: isMobile ? "center" : "flex-start",
+        marginBottom: "3.5rem",
+      }}>
+        {isMobile && (
+          <div style={{
+            width: 200, height: 200, border: `2px dashed ${COLORS.accent}`,
+            background: COLORS.inputBg, display: "flex", alignItems: "center",
+            justifyContent: "center", flexShrink: 0,
+          }}>
+            <span style={{ fontFamily: FONT, fontSize: "0.8rem", color: COLORS.tabInactive, letterSpacing: "0.1em" }}>Photo</span>
+          </div>
+        )}
+        <div style={{ flex: 1 }}>
+          {sectionLabel("Who")}
+          <p style={bodyStyle}>
+            I want to make AI in the physical world a reality — manufacturing advanced hardware at scale
+            for defense and consumers worldwide. I see drones, robots, and autonomous systems as the key
+            to our continued safety and a better way of life. Eagle Scout at 16, started two businesses
+            in high school, avid CrossFit athlete, and world traveler — I've always been wired to build.
+          </p>
+        </div>
+        {!isMobile && (
+          <div style={{
+            width: 300, height: 300, border: `2px dashed ${COLORS.accent}`,
+            background: COLORS.inputBg, display: "flex", alignItems: "center",
+            justifyContent: "center", flexShrink: 0,
+          }}>
+            <span style={{ fontFamily: FONT, fontSize: "0.8rem", color: COLORS.tabInactive, letterSpacing: "0.1em" }}>Photo</span>
+          </div>
+        )}
+      </div>
+
+      {/* WHAT */}
+      <div style={{ marginBottom: "3.5rem" }}>
+        {sectionLabel("What")}
+        <p style={bodyStyle}>
+          I'm an Industrial Engineer at Intel where I've scaled multiple factories and led our chamber
+          reuse program through system automations and new supplier agreements. On the side, I'm a native
+          AI builder — creating consumer and B2B products:{" "}
+          <a href="https://convos.godeepr.ai" target="_blank" rel="noopener noreferrer"
+            style={{ color: COLORS.accent, textDecoration: "none", borderBottom: `1px solid ${COLORS.accent}` }}
+          >Convos.GoDeepr.ai</a>{" "}
+          for conversational voice agents for law firms and small businesses, and{" "}
+          <a href="https://ripple.godeepr.ai" target="_blank" rel="noopener noreferrer"
+            style={{ color: COLORS.accent, textDecoration: "none", borderBottom: `1px solid ${COLORS.accent}` }}
+          >Ripple.GoDeepr.ai</a>{" "}
+          for sharing ripples of gratitude through your community.
+        </p>
+      </div>
+
+      {/* WHY */}
+      <div>
+        {sectionLabel("Why")}
+        <p style={bodyStyle}>
+          We're at a turning point — AI is moving from screens into the physical world. If you're building
+          a mega factory, scaling production for autonomous systems, or have opportunities in your life or
+          business that could benefit from AI agent orchestration — let's build something that matters.
+        </p>
       </div>
     </section>
   );
@@ -2335,7 +2429,7 @@ const ResumeSection = () => {
         fontFamily: FONT, fontSize: "0.95rem", color: COLORS.text, lineHeight: 1.8,
         maxWidth: "700px", marginBottom: "3rem", fontStyle: "italic", color: COLORS.tabInactive,
       }}>
-        I took a non-linear path to get here. Along the way I learned that the best systems — whether factories or companies — are built by people who've had to figure things out the hard way.
+        Eagle Scout at 16. Started a business at 15. Worked airline ramps, sold shoes on eBay, got a Systems Engineering degree then switched to Industrial Engineering. None of it was wasted.
       </div>
 
       {/* Timeline */}
@@ -2452,8 +2546,12 @@ const Contact = () => {
         {inView ? <TypewriterBlock text="Let's build something that matters." speed={30} /> : ""}
       </h2>
       <p style={{ fontFamily: FONT, fontSize: "1rem", color: COLORS.text, marginBottom: "2rem", lineHeight: 1.7 }}>
-        Looking for a Lead IE, Production Program Management, or Technical Program Management role
-        at a high-growth defense tech company.
+        I'm an Industrial Engineer who scales factories. At Intel, I own strategic capacity planning
+        across global semiconductor fabs — greenfield and brownfield buildouts, equipment forecasting,
+        install sequencing, and capital planning for billions in production infrastructure. I'm curious
+        about opportunities where I can bring that same rigor to advanced hardware — autonomous systems,
+        defense tech, space — anywhere the path from prototype to full-rate production is the bottleneck.
+        Let's talk.
       </p>
       <div style={{ display: "flex", justifyContent: "center", gap: "2rem", flexWrap: "wrap" }}>
         {[
@@ -2569,7 +2667,7 @@ export default function App() {
 
   // Track current section on scroll
   useEffect(() => {
-    const sections = ["hero", "case-study", "built-with-claude", "startup", "resume", "contact"];
+    const sections = ["hero", "bio", "case-study", "built-with-claude", "startup", "resume", "contact"];
     const onScroll = () => {
       for (const id of [...sections].reverse()) {
         const el = document.getElementById(id);
@@ -2603,6 +2701,7 @@ export default function App() {
 
       <Nav currentSection={currentSection} onNavigate={onNavigate} />
       <Hero />
+      <Bio />
       <ProjectCards onNavigate={onNavigate} />
       <CaseStudy />
       <BuiltWithClaude />
