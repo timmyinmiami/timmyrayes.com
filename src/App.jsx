@@ -177,9 +177,9 @@ const Nav = ({ currentSection, onNavigate }) => {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <div
           onClick={() => handleNav("hero")}
-          style={{ color: COLORS.heading, fontSize: "1.1rem", fontWeight: 600, cursor: "pointer", letterSpacing: "0.15em" }}
+          style={{ cursor: "pointer", display: "flex", alignItems: "center" }}
         >
-          TR
+          <img src="/favicon.png" alt="TR" style={{ height: "32px", width: "32px" }} />
         </div>
 
         {/* Desktop nav */}
@@ -362,13 +362,10 @@ const Bio = () => {
         marginBottom: "3.5rem",
       }}>
         {isMobile && (
-          <div style={{
-            width: 200, height: 200, border: `2px dashed ${COLORS.accent}`,
-            background: COLORS.inputBg, display: "flex", alignItems: "center",
-            justifyContent: "center", flexShrink: 0,
-          }}>
-            <span style={{ fontFamily: FONT, fontSize: "0.8rem", color: COLORS.tabInactive, letterSpacing: "0.1em" }}>Photo</span>
-          </div>
+          <img src="/timmy-rayes.jpg" alt="Timmy Rayes" style={{
+            width: 200, height: 200, objectFit: "cover", flexShrink: 0,
+            border: `2px solid ${COLORS.accent}`,
+          }} />
         )}
         <div style={{ flex: 1 }}>
           {sectionLabel("Who")}
@@ -380,13 +377,10 @@ const Bio = () => {
           </p>
         </div>
         {!isMobile && (
-          <div style={{
-            width: 300, height: 300, border: `2px dashed ${COLORS.accent}`,
-            background: COLORS.inputBg, display: "flex", alignItems: "center",
-            justifyContent: "center", flexShrink: 0,
-          }}>
-            <span style={{ fontFamily: FONT, fontSize: "0.8rem", color: COLORS.tabInactive, letterSpacing: "0.1em" }}>Photo</span>
-          </div>
+          <img src="/timmy-rayes.jpg" alt="Timmy Rayes" style={{
+            width: 300, height: 300, objectFit: "cover", flexShrink: 0,
+            border: `2px solid ${COLORS.accent}`,
+          }} />
         )}
       </div>
 
@@ -435,28 +429,35 @@ const ProjectCards = ({ onNavigate }) => {
     },
     {
       num: "02",
-      title: "Convos / GoDeepr.ai",
-      desc: "AI-driven workflow automation platform. Built from zero to one.",
-      target: "startup",
-    },
-    {
-      num: "03",
       title: "Resume & Background",
       desc: "7+ years scaling semiconductor manufacturing. From Intel fabs to defense tech.",
       target: "resume",
+    },
+    {
+      num: "03",
+      title: "Convos / GoDeepr.ai",
+      desc: "AI-driven conversational voice agents for law firms and small businesses.",
+      target: "startup",
+    },
+    {
+      num: "04",
+      title: "Ripple / GoDeepr.ai",
+      desc: "Share ripples of gratitude through your community. Built with Claude.",
+      target: "startup",
+      href: "https://ripple.godeepr.ai",
     },
   ];
 
   return (
     <section ref={ref} style={{ padding: "6rem 2rem", maxWidth: "1200px", margin: "0 auto" }}>
       <div style={{
-        display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+        display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
         gap: "1.5rem",
       }}>
         {cards.map((c, i) => (
           <div
             key={c.num}
-            onClick={() => onNavigate(c.target)}
+            onClick={() => c.href ? window.open(c.href, "_blank") : onNavigate(c.target)}
             style={{
               background: COLORS.cardBg, border: `1px solid ${COLORS.cardBorder}`,
               padding: "2.5rem 2rem", cursor: "pointer",
