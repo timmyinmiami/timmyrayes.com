@@ -371,7 +371,7 @@ const Bio = () => {
           {sectionLabel("Who")}
           <p style={bodyStyle}>
             I make hardware scale — semiconductors, autonomous systems, defense platforms. At Intel,
-            I own strategic capacity planning across 7 global fabs and led a chamber reuse program
+            I own strategic capacity planning across global fabs and led a chamber reuse program
             that moved the needle on cost and throughput. Eagle Scout at 16, two businesses in high
             school, avid CrossFit athlete and world traveler — I've always been wired to build things
             that work at volume.
@@ -391,9 +391,8 @@ const Bio = () => {
         <p style={bodyStyle}>
           I'm an Industrial Engineer at Intel — factory scaling, system automations, supplier agreements,
           and capacity modeling that keeps production from becoming the bottleneck. I also build AI-native
-          tools: products I've designed and shipped that sit at the intersection of agent orchestration
-          and real operational workflows. The case study below shows how I think — the same methods I
-          apply across global fabs, made interactive.
+          tools that sit at the intersection of agent orchestration and real operational workflows. The
+          case study below shows how I think — the same methods I apply across global fabs, made interactive.
         </p>
       </div>
 
@@ -403,7 +402,8 @@ const Bio = () => {
         <p style={bodyStyle}>
           The next decade belongs to whoever can move fastest from prototype to full-rate production —
           in autonomous systems, defense hardware, and the factories that make them real. That's the gap
-          I close. If you're building at that frontier, let's talk.
+          I close. And as these systems become more autonomous, I think deeply about what it means to
+          build them responsibly. If you're building at that frontier, let's talk.
         </p>
       </div>
     </section>
