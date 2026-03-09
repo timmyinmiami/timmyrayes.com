@@ -370,10 +370,11 @@ const Bio = () => {
         <div style={{ flex: 1 }}>
           {sectionLabel("Who")}
           <p style={bodyStyle}>
-            I scale factories for advanced hardware — drones, autonomous systems, defense platforms.
-            At Intel, I own strategic capacity planning across global semiconductor fabs. Eagle Scout
-            at 16, started two businesses in high school, avid CrossFit athlete, and world traveler —
-            I've always been wired to build.
+            I make hardware scale — semiconductors, autonomous systems, defense platforms. At Intel,
+            I own strategic capacity planning across 7 global fabs and led a chamber reuse program
+            that moved the needle on cost and throughput. Eagle Scout at 16, two businesses in high
+            school, avid CrossFit athlete and world traveler — I've always been wired to build things
+            that work at volume.
           </p>
         </div>
         {!isMobile && (
@@ -388,18 +389,11 @@ const Bio = () => {
       <div style={{ marginBottom: "3.5rem" }}>
         {sectionLabel("What")}
         <p style={bodyStyle}>
-          I'm an Industrial Engineer at Intel where I've scaled multiple factories and led our chamber
-          reuse program through system automations and new supplier agreements. The case study below
-          shows how I think — interactive capacity modeling, factory floor optimization, equipment risk
-          tracking, and supplier qualification tools that mirror the actual methods I use across 7 global
-          fabs. On the side, I build with AI —{" "}
-          <a href="https://convos.godeepr.ai" target="_blank" rel="noopener noreferrer"
-            style={{ color: COLORS.accent, textDecoration: "none", borderBottom: `1px solid ${COLORS.accent}` }}
-          >Convos.GoDeepr.ai</a> and{" "}
-          <a href="https://ripple.godeepr.ai" target="_blank" rel="noopener noreferrer"
-            style={{ color: COLORS.accent, textDecoration: "none", borderBottom: `1px solid ${COLORS.accent}` }}
-          >Ripple.GoDeepr.ai</a>{" "}
-          are projects I designed and shipped to sharpen my product and engineering skills.
+          I'm an Industrial Engineer at Intel — factory scaling, system automations, supplier agreements,
+          and capacity modeling that keeps production from becoming the bottleneck. I also build AI-native
+          tools: products I've designed and shipped that sit at the intersection of agent orchestration
+          and real operational workflows. The case study below shows how I think — the same methods I
+          apply across global fabs, made interactive.
         </p>
       </div>
 
@@ -407,10 +401,9 @@ const Bio = () => {
       <div>
         {sectionLabel("Why")}
         <p style={bodyStyle}>
-          We're at a turning point — AI is moving from screens into the physical world. The companies
-          building autonomous systems, defense hardware, and next-gen manufacturing platforms need people
-          who know how to take a prototype and scale it to full-rate production. That's what I do, and
-          that's where I want to be.
+          The next decade belongs to whoever can move fastest from prototype to full-rate production —
+          in autonomous systems, defense hardware, and the factories that make them real. That's the gap
+          I close. If you're building at that frontier, let's talk.
         </p>
       </div>
     </section>
