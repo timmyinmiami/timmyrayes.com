@@ -370,10 +370,10 @@ const Bio = () => {
         <div style={{ flex: 1 }}>
           {sectionLabel("Who")}
           <p style={bodyStyle}>
-            I want to make AI in the physical world a reality — manufacturing advanced hardware at scale
-            for defense and consumers worldwide. I see drones, robots, and autonomous systems as the key
-            to our continued safety and a better way of life. Eagle Scout at 16, started two businesses
-            in high school, avid CrossFit athlete, and world traveler — I've always been wired to build.
+            I scale factories for advanced hardware — drones, autonomous systems, defense platforms.
+            At Intel, I own strategic capacity planning across global semiconductor fabs. Eagle Scout
+            at 16, started two businesses in high school, avid CrossFit athlete, and world traveler —
+            I've always been wired to build.
           </p>
         </div>
         {!isMobile && (
@@ -389,16 +389,17 @@ const Bio = () => {
         {sectionLabel("What")}
         <p style={bodyStyle}>
           I'm an Industrial Engineer at Intel where I've scaled multiple factories and led our chamber
-          reuse program through system automations and new supplier agreements. On the side, I'm a native
-          AI builder — creating consumer and B2B products:{" "}
+          reuse program through system automations and new supplier agreements. The case study below
+          shows how I think — interactive capacity modeling, factory floor optimization, equipment risk
+          tracking, and supplier qualification tools that mirror the actual methods I use across 7 global
+          fabs. On the side, I build with AI —{" "}
           <a href="https://convos.godeepr.ai" target="_blank" rel="noopener noreferrer"
             style={{ color: COLORS.accent, textDecoration: "none", borderBottom: `1px solid ${COLORS.accent}` }}
-          >Convos.GoDeepr.ai</a>{" "}
-          for conversational voice agents for law firms and small businesses, and{" "}
+          >Convos.GoDeepr.ai</a> and{" "}
           <a href="https://ripple.godeepr.ai" target="_blank" rel="noopener noreferrer"
             style={{ color: COLORS.accent, textDecoration: "none", borderBottom: `1px solid ${COLORS.accent}` }}
           >Ripple.GoDeepr.ai</a>{" "}
-          for sharing ripples of gratitude through your community.
+          are projects I designed and shipped to sharpen my product and engineering skills.
         </p>
       </div>
 
@@ -406,104 +407,17 @@ const Bio = () => {
       <div>
         {sectionLabel("Why")}
         <p style={bodyStyle}>
-          We're at a turning point — AI is moving from screens into the physical world. If you're building
-          a mega factory, scaling production for autonomous systems, or have opportunities in your life or
-          business that could benefit from AI agent orchestration — let's build something that matters.
+          We're at a turning point — AI is moving from screens into the physical world. The companies
+          building autonomous systems, defense hardware, and next-gen manufacturing platforms need people
+          who know how to take a prototype and scale it to full-rate production. That's what I do, and
+          that's where I want to be.
         </p>
       </div>
     </section>
   );
 };
 
-// ============================================================
-// PROJECT CARDS SECTION
-// ============================================================
-const ProjectCards = ({ onNavigate }) => {
-  const [ref, inView] = useInView(0.15);
-  const cards = [
-    {
-      num: "01",
-      title: "Factory Scale-Up Case Study",
-      desc: "Interactive capacity modeling and scenario planning for defense manufacturing at scale.",
-      target: "case-study",
-    },
-    {
-      num: "02",
-      title: "Resume & Background",
-      desc: "7+ years scaling semiconductor manufacturing. From Intel fabs to defense tech.",
-      target: "resume",
-    },
-    {
-      num: "03",
-      title: "Convos / GoDeepr.ai",
-      desc: "AI-driven conversational voice agents for law firms and small businesses.",
-      target: "startup",
-    },
-    {
-      num: "04",
-      title: "Ripple / GoDeepr.ai",
-      desc: "Share ripples of gratitude through your community. Built with Claude.",
-      target: "startup",
-      href: "https://ripple.godeepr.ai",
-    },
-  ];
-
-  return (
-    <section ref={ref} style={{ padding: "6rem 2rem", maxWidth: "1200px", margin: "0 auto" }}>
-      <div style={{
-        display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-        gap: "1.5rem",
-      }}>
-        {cards.map((c, i) => (
-          <div
-            key={c.num}
-            onClick={() => c.href ? window.open(c.href, "_blank") : onNavigate(c.target)}
-            style={{
-              background: COLORS.cardBg, border: `1px solid ${COLORS.cardBorder}`,
-              padding: "2.5rem 2rem", cursor: "pointer",
-              opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(30px)",
-              transition: `all 0.6s ease ${i * 0.15}s`,
-              position: "relative", overflow: "hidden",
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)";
-              e.currentTarget.style.transform = "translateY(-4px)";
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.borderColor = COLORS.cardBorder;
-              e.currentTarget.style.transform = "translateY(0)";
-            }}
-          >
-            <div style={{
-              fontFamily: FONT, fontSize: "0.75rem", color: COLORS.tabInactive,
-              letterSpacing: "0.15em", marginBottom: "1.5rem",
-            }}>
-              {c.num}
-            </div>
-            <h3 style={{
-              fontFamily: FONT, fontSize: "1.4rem", fontWeight: 600,
-              color: COLORS.heading, marginBottom: "1rem",
-            }}>
-              {c.title}
-            </h3>
-            <p style={{
-              fontFamily: FONT, fontSize: "0.95rem", color: COLORS.text,
-              lineHeight: 1.6,
-            }}>
-              {c.desc}
-            </p>
-            <div style={{
-              marginTop: "2rem", color: COLORS.heading, fontSize: "1.2rem",
-              fontFamily: FONT, transition: "transform 0.3s",
-            }}>
-              &rarr;
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-};
+// ProjectCards section removed — redundant shortcut links
 
 // --- Tab 4: Supplier Selection & Qualification ---
 const SupplierQualification = () => {
@@ -2370,23 +2284,6 @@ const StartupSection = () => {
         ))}
       </div>
 
-      {/* Link to live site */}
-      <a
-        href="https://convos.godeepr.ai"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{
-          display: "inline-flex", alignItems: "center", gap: "0.75rem",
-          fontFamily: FONT, fontSize: "1rem", fontWeight: 600,
-          color: COLORS.heading, textDecoration: "none",
-          padding: "1rem 2rem", border: `1px solid ${COLORS.cardBorder}`,
-          transition: "all 0.3s",
-        }}
-        onMouseEnter={e => { e.currentTarget.style.borderColor = COLORS.heading; e.currentTarget.style.transform = "translateX(4px)"; }}
-        onMouseLeave={e => { e.currentTarget.style.borderColor = COLORS.cardBorder; e.currentTarget.style.transform = "translateX(0)"; }}
-      >
-        Visit Convos.GoDeepr.ai &rarr;
-      </a>
     </section>
   );
 };
@@ -2436,23 +2333,6 @@ const RippleSection = () => {
           </div>
         ))}
       </div>
-
-      <a
-        href="https://ripple.godeepr.ai"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{
-          display: "inline-flex", alignItems: "center", gap: "0.75rem",
-          fontFamily: FONT, fontSize: "1rem", fontWeight: 600,
-          color: COLORS.heading, textDecoration: "none",
-          padding: "1rem 2rem", border: `1px solid ${COLORS.cardBorder}`,
-          transition: "all 0.3s", marginBottom: "3rem",
-        }}
-        onMouseEnter={e => { e.currentTarget.style.borderColor = COLORS.heading; e.currentTarget.style.transform = "translateX(4px)"; }}
-        onMouseLeave={e => { e.currentTarget.style.borderColor = COLORS.cardBorder; e.currentTarget.style.transform = "translateX(0)"; }}
-      >
-        Try it &rarr; ripple.godeepr.ai
-      </a>
 
       <p style={{
         fontFamily: FONT, fontSize: "0.95rem", color: COLORS.text, lineHeight: 1.8,
@@ -2788,7 +2668,6 @@ export default function App() {
       <Nav currentSection={currentSection} onNavigate={onNavigate} />
       <Hero />
       <Bio />
-      <ProjectCards onNavigate={onNavigate} />
       <CaseStudy />
       <StartupSection />
       <RippleSection />
