@@ -271,7 +271,7 @@ const Nav = ({ currentSection, onNavigate }) => {
 const Hero = () => {
   const { displayed: name, done: nameDone } = useTypewriter("TIMMY RAYES", 80, 300);
   const { displayed: tagline } = useTypewriter(
-    "Industrial Engineer. Builder. Scaling factories for what matters.",
+    "Industrial Engineer. Builder. Scaling operations for what matters.",
     25, 1500, nameDone
   );
 
@@ -303,7 +303,7 @@ const Hero = () => {
         minHeight: "2rem", position: "relative",
       }}>
         {tagline}
-        {nameDone && tagline.length < "Industrial Engineer. Builder. Scaling factories for what matters.".length && (
+        {nameDone && tagline.length < "Industrial Engineer. Builder. Scaling operations for what matters.".length && (
           <span style={{ animation: "blink 1s step-end infinite" }}>|</span>
         )}
       </p>
@@ -370,7 +370,7 @@ const Bio = () => {
         <div style={{ flex: 1 }}>
           {sectionLabel("Who")}
           <p style={bodyStyle}>
-            I make hardware scale — semiconductors, autonomous systems, defense platforms. At Intel,
+            I make complex operations scale — semiconductors, autonomous systems, high-volume service networks. At Intel,
             I own strategic capacity planning across global fabs and led a chamber reuse program
             that moved the needle on cost and throughput. Eagle Scout at 16, two businesses in high
             school, avid CrossFit athlete and world traveler — I've always been wired to build things
@@ -400,10 +400,10 @@ const Bio = () => {
       <div>
         {sectionLabel("Why")}
         <p style={bodyStyle}>
-          The next decade belongs to whoever can move fastest from prototype to full-rate production —
-          in autonomous systems, defense hardware, and the factories that make them real. That's the gap
-          I close. And as these systems become more autonomous, I think deeply about what it means to
-          build them responsibly. If you're building at that frontier, let's talk.
+          The next decade belongs to whoever can move fastest from plan to full-scale execution —
+          in autonomous systems, defense hardware, global fleet operations, and the complex supply chains
+          behind them. That's the gap I close. And as these systems become more autonomous, I think deeply
+          about what it means to build them responsibly. If you're building at that frontier, let's talk.
         </p>
       </div>
     </section>
@@ -2363,7 +2363,7 @@ const ResumeSection = () => {
   ];
 
   const skills = [
-    { category: "Capacity & Planning", items: ["Long-Range Capacity Modeling", "Scenario Analysis", "Demand Forecasting", "S&OP", "Capital Planning", "Factory Readiness"] },
+    { category: "Capacity & Planning", items: ["Long-Range Capacity Modeling", "Scenario Analysis", "Demand Forecasting", "S&OP", "Capital Planning", "Factory Readiness", "Crew/Workforce Planning", "Resource Allocation Optimization"] },
     { category: "Systems & Analytics", items: ["Python", "SQL", "Power BI Dashboards", "Data Pipelines", "Discrete-Event Simulation", "FlexSim", "ERP/MES Systems"] },
     { category: "Manufacturing", items: ["Factory Layout (AutoCAD)", "Equipment Deployment", "AMHS Material Flow", "Greenfield/Brownfield", "Throughput Optimization", "Lean Six Sigma"] },
     { category: "Program Execution", items: ["Cross-Functional Leadership", "Stakeholder Alignment", "Risk Assessment", "NPI Launch", "MS Project", "Zero-to-One Initiatives"] },
@@ -2505,11 +2505,11 @@ const Contact = () => {
         {inView ? <TypewriterBlock text="Let's build something that matters." speed={30} /> : ""}
       </h2>
       <p style={{ fontFamily: FONT, fontSize: "1rem", color: COLORS.text, marginBottom: "2rem", lineHeight: 1.7 }}>
-        I'm an Industrial Engineer who scales factories. At Intel, I own strategic capacity planning
+        I'm an Industrial Engineer who scales operations. At Intel, I own strategic capacity planning
         across global semiconductor fabs — greenfield and brownfield buildouts, equipment forecasting,
         install sequencing, and capital planning for billions in production infrastructure. I'm curious
-        about opportunities where I can bring that same rigor to advanced hardware — autonomous systems,
-        defense tech, space — anywhere the path from prototype to full-rate production is the bottleneck.
+        about opportunities where I can bring that same rigor to operationally complex businesses — autonomous systems,
+        defense tech, global fleet operations — anywhere the path from plan to full-scale execution is the bottleneck.
         Let's talk.
       </p>
       <div style={{ display: "flex", justifyContent: "center", gap: "2rem", flexWrap: "wrap" }}>
