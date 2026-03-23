@@ -2230,6 +2230,56 @@ const _REMOVED_BuiltWithClaude = () => {
 };
 
 // ============================================================
+// CASE STUDY 2: RESOURCE ALLOCATION & CAPACITY OPTIMIZATION
+// ============================================================
+const ResourceAllocationCaseStudy = () => {
+  const [ref, inView] = useInView(0.1);
+  const isMobile = useIsMobile();
+
+  const cards = [
+    { title: "Problem", desc: "When shared physical assets are managed without centralized tracking — multiple teams requesting independently, no single source of truth, manual and ad hoc decisions — utilization drops, costs rise, and planning becomes guesswork. This is true whether the assets are semiconductor chambers, crew cabins, or warehouse space." },
+    { title: "Solution", desc: "Build the visibility layer first. Create a centralized inventory and allocation tracking system, define decision rights and governance, then layer in data-driven forecasting and optimization. Visibility before optimization, pilot before scale." },
+    { title: "What I Built", desc: "At Intel, chambers across the fab had no centralized tracking. Different teams used, requested, and converted them independently. I built the system that gave the organization chamber-level inventory visibility, enabled data-driven reuse and allocation decisions, and supported capacity planning across the fleet. The same framework applies to any finite shared resource with multiple stakeholders." },
+    { title: "How I Built It", desc: "Mapped the current state across teams and systems, identified root causes (not just symptoms), built the tracking and governance layer, and iterated with stakeholders until adoption stuck. Process engineering + data infrastructure + change management." },
+  ];
+
+  return (
+    <section id="resource-allocation" ref={ref} style={{ padding: "8rem 2rem", maxWidth: "1200px", margin: "0 auto" }}>
+      <div style={{ marginBottom: "1rem" }}>
+        <span style={{
+          fontFamily: FONT, fontSize: "0.75rem", color: COLORS.accent,
+          letterSpacing: "0.2em", textTransform: "uppercase",
+        }}>
+          Case Study
+        </span>
+      </div>
+      <h2 style={{
+        fontFamily: FONT, fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 600,
+        color: COLORS.heading, marginBottom: "1rem", lineHeight: 1.1,
+      }}>
+        {inView ? <TypewriterBlock text="Resource Allocation & Capacity Optimization" speed={25} /> : ""}
+      </h2>
+      <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "1.5rem", maxWidth: "900px" }}>
+        {cards.map((card, i) => (
+          <div key={card.title} style={{
+            background: COLORS.cardBg, border: `1px solid ${COLORS.cardBorder}`, padding: "2rem",
+            opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(20px)",
+            transition: `all 0.5s ease ${i * 0.1}s`,
+          }}>
+            <h4 style={{ fontFamily: FONT, fontSize: "0.75rem", color: COLORS.accent, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "1rem" }}>
+              {card.title}
+            </h4>
+            <p style={{ fontFamily: FONT, fontSize: "0.9rem", color: COLORS.text, lineHeight: 1.7 }}>
+              {card.desc}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+// ============================================================
 // STARTUP PAGE (CONVOS / GODEEPR.AI)
 // ============================================================
 const StartupSection = () => {
@@ -2626,7 +2676,7 @@ export default function App() {
 
   // Track current section on scroll
   useEffect(() => {
-    const sections = ["hero", "bio", "case-study", "startup", "ripple", "resume", "contact"];
+    const sections = ["hero", "bio", "case-study", "resource-allocation", "startup", "ripple", "resume", "contact"];
     const onScroll = () => {
       for (const id of [...sections].reverse()) {
         const el = document.getElementById(id);
@@ -2662,6 +2712,7 @@ export default function App() {
       <Hero />
       <Bio />
       <CaseStudy />
+      <ResourceAllocationCaseStudy />
       <StartupSection />
       <RippleSection />
       <ResumeSection />
